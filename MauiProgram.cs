@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Plugin.Maui.Audio;
-using CommunityToolkit.Maui;
 
 
 namespace SimpleElevenlabsAndroid;
@@ -18,7 +17,6 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 		builder.Services.AddSingleton(AudioManager.Current);
-		builder.UseMauiCommunityToolkit();
 
 #if DEBUG
         builder.Logging.AddDebug();

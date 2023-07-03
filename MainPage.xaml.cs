@@ -1,8 +1,8 @@
-﻿using CommunityToolkit.Maui.Views;
-using ElevenLabs;
+﻿using ElevenLabs;
 using ElevenLabs.Models;
 using ElevenLabs.TextToSpeech;
 using ElevenLabs.Voices;
+using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 using Plugin.Maui.Audio;
 using System.ComponentModel;
@@ -23,41 +23,48 @@ public partial class MainPage : ContentPage
     public MainPage()
 	{
 		InitializeComponent();
-		Init();
+		//Init();
     }
 
-
+    public void OnLoaded(object sender, EventArgs e)
+    {
+        Init();
+    }
 
 	public async void Init()
 	{
-        if (File.Exists($"{FileSystem.AppDataDirectory}.apikey"))
+        if (await SecureStorage.Default.GetAsync("xi-api-key")!=null)
         {
             try
             {
 
-                await utils.Initialize(File.ReadAllText($"{FileSystem.AppDataDirectory}.apikey"));
+                await utils.Initialize(await SecureStorage.Default.GetAsync("xi-api-key"));
                 await FillVoices();
 
             }
             catch
             {
+
                 await DisplayAlert("Malformed API Key", "The API Key wasn't properly stored. You will have to set it again.", "Ok");
-                
+                MainPage.LoadSettings();
             }
             //textBox1.Text = api.ElevenLabsAuthentication.ApiKey;
             //LoadDashBoard();
         }
         else
         {
-            await DisplayAlert("Missing API Key","No API Key set yet, please set one in the settings", "Ok"));
+            await DisplayAlert("Missing API Key","No API Key set yet, please set one in the settings", "Ok");
             //Disable_Buttons();
 
-            //LoadSettings();
+            MainPage.LoadSettings();
         }
 		
     }
 
-
+    public static void LoadSettings()
+    {
+        App.Current.MainPage = new NavigationPage(new Settings());
+    }
 
     private void OnCounterClicked(object sender, EventArgs e)
 	{

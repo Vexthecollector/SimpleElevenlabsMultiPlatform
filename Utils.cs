@@ -28,11 +28,12 @@ namespace SimpleElevenlabsAndroid
             }
         }
 
-        public void Store_API_Key(string apikey)
+        public async void Store_API_Key(string apikey)
         {
-            var myFile = File.Create($"{FileSystem.AppDataDirectory}.apikey");
-            myFile.Close();
-            File.WriteAllText($"{FileSystem.AppDataDirectory}.apikey", apikey);
+            await SecureStorage.Default.SetAsync("xi-api-key", apikey);
+            //var myFile = File.Create($"{FileSystem.AppDataDirectory}.apikey");
+            //myFile.Close();
+            //File.WriteAllText($"{FileSystem.AppDataDirectory}.apikey", apikey);
         }
 
         public async Task<Boolean> get_Voices()
