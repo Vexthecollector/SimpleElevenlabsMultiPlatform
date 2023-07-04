@@ -11,7 +11,7 @@ namespace SimpleElevenlabsMultiPlatform
     public class Manager
     {
         AppShell shell;
-
+        MainPage mainPage;
 
         ElevenLabsClient api;
         ElevenLabs.Voices.Voice voice;
@@ -37,6 +37,9 @@ namespace SimpleElevenlabsMultiPlatform
         }
 
         public AppShell Shell { get => shell; set => shell = value; }
+        public MainPage MainPage { get => mainPage; set => mainPage = value; }
+
+
         public ElevenLabsClient Api { get => api; set => api = value; }
 
         public ElevenLabs.Voices.Voice Voice { get => voice; set => voice = value; }

@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="SimpleElevenlabsMultiPlatform.MainPage"
-             Loaded="OnLoaded"
-             NavigatedTo="OnLoaded">
+             Loaded="OnLoaded">
 
     <ScrollView>
         <StackLayout>

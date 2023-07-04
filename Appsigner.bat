@@ -1,1 +1,0 @@
-"C:\Program Files (x86)\Android\android-sdk\build-tools\32.0.0\apksigner.bat" sign --ks "E:\VSCodeMods\SimpleElevenlabsAndroid\vexthecollector.keystore" --ks-key-alias vexthecollector "E:\VSCodeMods\SimpleElevenlabsAndroid\bin\Release\net7.0-android\com.companyname.simpleelevenlabsandroid.apk"

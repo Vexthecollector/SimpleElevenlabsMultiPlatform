@@ -8,6 +8,7 @@ using Plugin.Maui.Audio;
 using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Text;
 using System.Text.Json;
@@ -22,6 +23,7 @@ public partial class MainPage : ContentPage
 
     public MainPage()
     {
+        Manager.Configs.MainPage = this;
         InitializeComponent();
         //Init();
     }
@@ -31,7 +33,7 @@ public partial class MainPage : ContentPage
         Init();
     }
 
-    public async void Init()
+    public async Task<Boolean> Init()
     {
         if (await SecureStorage.Default.GetAsync("xi-api-key") != null)
         {
@@ -40,6 +42,7 @@ public partial class MainPage : ContentPage
                 await utils.Initialize(await SecureStorage.Default.GetAsync("xi-api-key"));
                 await FillVoices();
                 await FillModels();
+                return true;
             }
             catch
             {
@@ -57,11 +60,13 @@ public partial class MainPage : ContentPage
 
             MainPage.LoadSettings();
         }
+        return false;
 
     }
 
     public static async void LoadSettings()
     {
+        
         await Shell.Current.GoToAsync("//Settings");
     }
 
