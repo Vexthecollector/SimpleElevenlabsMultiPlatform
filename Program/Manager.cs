@@ -10,13 +10,16 @@ namespace SimpleElevenlabsMultiPlatform
 {
     public class Manager
     {
-        
+        AppShell shell;
+
+
         ElevenLabsClient api;
         ElevenLabs.Voices.Voice voice;
         List<ElevenLabs.Voices.Voice> allVoices;
         List<EasyVoice> easyVoices;
         ElevenLabs.Models.Model model;
         IReadOnlyList<ElevenLabs.Models.Model> models;
+        List<EasyModel> easyModels;
         UserInfo userInfo;
 
         private static readonly Manager configs = new Manager();
@@ -32,6 +35,8 @@ namespace SimpleElevenlabsMultiPlatform
         {
             get { return configs; }
         }
+
+        public AppShell Shell { get => shell; set => shell = value; }
         public ElevenLabsClient Api { get => api; set => api = value; }
 
         public ElevenLabs.Voices.Voice Voice { get => voice; set => voice = value; }
@@ -39,6 +44,7 @@ namespace SimpleElevenlabsMultiPlatform
         public List<ElevenLabs.Voices.Voice> AllVoices { get => allVoices; set => allVoices = value; }
         public UserInfo UserInfo { get => userInfo; set => userInfo = value; }
         public IReadOnlyList<ElevenLabs.Models.Model> Models { get => models; set => models = value; }
+        public List<EasyModel> EasyModels { get=>easyModels; set => easyModels = value; }
         public ElevenLabs.Models.Model Model { get => model; set => model = value; }
     }
 }

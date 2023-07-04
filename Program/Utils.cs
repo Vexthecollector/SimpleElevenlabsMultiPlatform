@@ -39,7 +39,6 @@ namespace SimpleElevenlabsMultiPlatform
         public async Task<Boolean> get_Voices()
         {
             Manager.Configs.AllVoices = (List<ElevenLabs.Voices.Voice>)await Manager.Configs.Api.VoicesEndpoint.GetAllVoicesAsync();
-            Console.WriteLine(Manager.Configs.AllVoices);
             List<EasyVoice> voices = new List<EasyVoice>();
             foreach(var voice in Manager.Configs.AllVoices)
             {
@@ -60,6 +59,12 @@ namespace SimpleElevenlabsMultiPlatform
         public async Task get_Current_Models()
         {
             Manager.Configs.Models = await Manager.Configs.Api.ModelsEndpoint.GetModelsAsync();
+            List<EasyModel> models = new List<EasyModel>();
+            foreach(var model in Manager.Configs.Models)
+            {
+                models.Add(new EasyModel(model.Id,model.Name));
+            }
+            Manager.Configs.EasyModels = models;
             return;
         }
     }

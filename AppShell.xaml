@@ -8,10 +8,12 @@
 
     <ShellContent
         Title="Home"
+        x:Name="ShellMainPage"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
     <ShellContent
             Title="Settings"
+        x:Name="ShellSettings"
             ContentTemplate="{DataTemplate local:Settings}"
             Route="Settings"
             />

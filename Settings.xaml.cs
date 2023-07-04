@@ -16,7 +16,8 @@ public partial class Settings : ContentPage
         {
             indicator.IsRunning = false;
             if (await DisplayAlert("Store Key?", "Would you like to store the API Key for future use?", "Yes", "No")) utils.Store_API_Key(Apikey.Text);
-            Application.Current.MainPage = new NavigationPage(new MainPage());
+            await Shell.Current.GoToAsync("//MainPage");
+            //Application.Current.MainPage = new NavigationPage(new MainPage());
         }
         else
         {

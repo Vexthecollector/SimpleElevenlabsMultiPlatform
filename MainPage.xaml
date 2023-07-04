@@ -1,32 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="SimpleElevenlabsMultiPlatform.MainPage"
-             Loaded="OnLoaded">
+             Loaded="OnLoaded"
+             NavigatedTo="OnLoaded">
 
     <ScrollView>
-        <VerticalStackLayout
+        <StackLayout>
+            <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Label
+                <Label
                 Text="Simple Elevenlabs"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <Entry x:Name="MessageBox" Placeholder="Enter Text" SemanticProperties.Hint="The text you will be generating." Completed="OnEntryCompleted"/>
-            <Picker x:Name="VoiceSelection" SemanticProperties.Hint="Select the Voice you want to use." />
+                <Entry x:Name="MessageBox" Placeholder="Enter Text" SemanticProperties.Hint="The text you will be generating." Completed="OnEntryCompleted"/>
+                <Picker x:Name="VoiceSelection" SemanticProperties.Description="Voice Selection" SemanticProperties.Hint="Select the Voice you want to use."
+                        SelectedIndexChanged="OnSelectedIndexChanged"/>
 
-            <Button
+                <Button
                 x:Name="CounterBtn"
                 Text="Send"
                 SemanticProperties.Hint="Sends your text to be generated"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+            </VerticalStackLayout>
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="Advanced Options"
+               FontSize="Medium" HorizontalOptions="Center"  />
+                </toolkit:Expander.Header>
+                <VerticalStackLayout Spacing="10" Padding="15,0">
 
-        </VerticalStackLayout>
+
+
+                    <Label 
+               Text="Model Selection"
+               FontSize="12"/>
+                    <Picker x:Name="ModelSelection" SemanticProperties.Description="Model Selection" SemanticProperties.Hint="Select the Model you want to use."
+                            SelectedIndexChanged="OnModelChanged"/>
+
+                    <HorizontalStackLayout>
+                        <Label 
+               Text="Speaker Boost"
+               FontSize="12"/>
+                        <CheckBox x:Name="SpeakerBoost" SemanticProperties.Description="Toggle Speaker Boost" SemanticProperties.Hint="Boost the similarity of the synthesized speech and the voice at the cost of some generation speed."
+                                  
+                                  />
+                    </HorizontalStackLayout>
+
+                    <Label 
+               Text="Stability"
+               FontSize="12"/>
+                    <Slider x:Name="StabilitySlider" Maximum="100" SemanticProperties.Description="Stability Slider" SemanticProperties.Hint="Lower Value leads to more variations in the generation."
+                 />
+
+                    <Label 
+               Text="Clarity"
+               FontSize="12"/>
+                    <Slider x:Name="ClaritySlider" Maximum="100" SemanticProperties.Description="Clarity and Similarity Slider" SemanticProperties.Hint="Higer values means the generation is closer to the samples used."
+                 />
+
+                    <Label 
+               Text="Style Exaggeration"
+               FontSize="12"/>
+                    <Slider x:Name="StyleSlider" Maximum="100" SemanticProperties.Description="Style Exaggeration Slider"
+                 />
+                </VerticalStackLayout>
+            </toolkit:Expander>
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
