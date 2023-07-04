@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace SimpleElevenlabsAndroid;
+namespace SimpleElevenlabsMultiPlatform;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

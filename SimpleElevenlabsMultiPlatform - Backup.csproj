@@ -11,10 +11,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>SimpleElevenlabsAndroid</ApplicationTitle>
+		<ApplicationTitle>SimpleElevenlabsMultiPlatform</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.simpleelevenlabsandroid</ApplicationId>
+		<ApplicationId>com.companyname.SimpleElevenlabsMultiPlatform</ApplicationId>
 		<ApplicationIdGuid>a292ef7d-5706-4306-9e6f-7e2b37becf0b</ApplicationIdGuid>
 
 		<!-- Versions -->

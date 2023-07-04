@@ -13,7 +13,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 
-namespace SimpleElevenlabsAndroid;
+namespace SimpleElevenlabsMultiPlatform;
 
 public partial class MainPage : ContentPage
 {

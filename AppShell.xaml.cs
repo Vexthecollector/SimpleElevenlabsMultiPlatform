@@ -1,4 +1,4 @@
-﻿namespace SimpleElevenlabsAndroid;
+﻿namespace SimpleElevenlabsMultiPlatform;
 
 public partial class AppShell : Shell
 {

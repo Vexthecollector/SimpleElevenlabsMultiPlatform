@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="SimpleElevenlabsAndroid.Settings"
+             x:Class="SimpleElevenlabsMultiPlatform.Settings"
              Title="Settings">
     <VerticalStackLayout>
         <Entry x:Name="Apikey" Placeholder="Enter Key" Completed="setKey" VerticalOptions="Center" 
             HorizontalOptions="Center"/>
         <Button
                 x:Name="SetApiKey"
-                Text="Send"
+                Text="Set Api Key"
                 SemanticProperties.Hint="Sets your API Key"
                 Clicked="setKey"
                 HorizontalOptions="Center" />

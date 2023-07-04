@@ -2,7 +2,7 @@
 using Plugin.Maui.Audio;
 
 
-namespace SimpleElevenlabsAndroid;
+namespace SimpleElevenlabsMultiPlatform;
 
 public static class MauiProgram
 {
